@@ -5,11 +5,12 @@ const geocode = (address, callback) => {
 
   request({url: url, json: true}, (error, response) => {
     if(error){
-      callback('Unable to connect to location server!', undefined);    
+      return callback('Unable to connect to location server!', undefined);    
     }
-    if(response.body.query === 0){
-      callback('Uneable to find location!', undefined)
+    if(response.body.query.length === 0){
+      return callback('Uneable to find location!', undefined)
     }
+    console.log('geocode:', response.body.query)
     const coordinates = response.body.features[0].center; 
 
     callback(undefined, {
