@@ -52,26 +52,4 @@ mongoose.connect('mongodb://localhost:27017/task-manager-api')
 
 // me.save().then(result => console.log(result)).catch(error => console.log(error))
 
-const Tasks = mongoose.model('Tasks', {
-  description: {
-    type: String,
-    required: true,
-    trim: true
-  },
-  completed: {
-    type: Boolean,
-    default: false
-  }
-})
 
-const feedPet = new Tasks({
-  description: 'feed the pets',
-})
-
-const cleanHouse = new Tasks({
-  description: 'Clean my house',
-  completed: true
-})
-
-cleanHouse.save();
-feedPet.save().then(result => console.log(result)).catch(error => console.log(error))
