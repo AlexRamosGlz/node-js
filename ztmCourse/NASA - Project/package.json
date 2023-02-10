@@ -5,14 +5,22 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "client": "npm run start --prefix client",
+    "client": "npm run build --prefix client",
     "watch": "run-p server client",
-    "server": "npm run watch --prefix server"
+    "server": "npm run watch --prefix server",
+    "deploy": "run-p client server",
+    "cluster-server": "npm run cluster --prefix server",
+    "deploy-cluster": "run-p client cluster-server"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "npm-run-all": "^4.1.5"
+    "mongoose": "^6.9.1",
+    "npm-run-all": "^4.1.5",
+    "pm2": "^5.2.2"
+  },
+  "devDependencies": {
+    "jest": "^29.4.1"
   }
 }
