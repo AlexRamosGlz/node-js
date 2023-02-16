@@ -22,7 +22,7 @@ const launch = {
 saveLaunch(launch);
 
 async function existLaunchWithId(launchId) {
-  return launches.has(launchId);
+  return await launchesDB.findOne({ fligthNumber: launchId });
 }
 
 async function getLatestFlightNumber() {
@@ -39,15 +39,18 @@ async function getAllLaunches() {
   return await launchesDB.find({}, { _id: 0, __v: 0 });
 }
 
-function existLaunchWithId(launchId) {
-  return launches.has(launchId);
-}
+async function abortLaunchById(launchId) {
+  const res = await launchesDB.updateOne(
+    {
+      fligthNumber: launchId,
+    },
+    {
+      upcoming: false,
+      succes: false,
+    }
+  );
 
-function abortLaunchById(launchId) {
-  const aborted = launches.get(launchId);
-  aborted.upcoming = false;
-  aborted.succes = false;
-  return aborted;
+  return res.matchedCount === 1;
 }
 
 // function addNewLaunch(launch) {
