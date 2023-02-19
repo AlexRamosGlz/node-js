@@ -1,0 +1,18 @@
+const DEFAULT_PAGE_NUMBER = 1;
+const DEFAULT_DOCS_NUMBER = 0;
+
+function getPagination(query) {
+  const limit = Math.abs(query.limit) || DEFAULT_DOCS_NUMBER;
+  const page = Math.abs(query.page) || DEFAULT_PAGE_NUMBER;
+
+  const skip = (page - 1) * limit;
+
+  return {
+    limit,
+    skip,
+  };
+}
+
+module.exports = {
+  getPagination,
+};
