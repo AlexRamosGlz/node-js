@@ -1,0 +1,22 @@
+first of all you'll need the openSSl toolkit installed on your machine
+
+command line:
+
+    openSSl req -x509 -newkey rsa:4096 -nodes -keyout key.pem -out cert.pem -days 365
+        ↑    ↑     ↑     ↑      ↑   ↑     ↑      ↑       ↑      ↑       ↑      ↑   ↑  
+        1    2     3     4      5   6     7      8       9      10      11     12  13
+
+
+1) command name
+2) it's an option to request a new certificate
+3) this options it's to let new that we are requesting a self-signed certificate
+4) generate a private key 
+5) encription format
+6) size of the key (amount of Kb that the key takes up)
+7) allows to acces the private key without a password (useful for development)
+8) this options tells openSSl that they key generated should live in a file
+9) name of the file in which the key will be stored (.pem is a common format use for certificates, both for the private key aswell as the certificate itself)
+10) this flag is used to stored the certificate in a file
+11) name of the file in which the certificate will be stored
+12) flag used for how many days the certificate will be valid
+13) amount of days until creating a new certificate
