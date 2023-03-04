@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "watch": "nodemon ./src/index.js",
-    "cluster": "pm2 start src/index.js -i max"
+    "cluster": "pm2 start src/index.js -i max",
+    "debbug":  "node --inspect ./src/index.js "
   },
   "keywords": [],
   "author": "",

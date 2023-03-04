@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run test --prefix server",
     "client": "npm run build --prefix client",
     "watch": "run-p server client",
     "server": "npm run watch --prefix server",
     "deploy": "run-p client server",
     "cluster-server": "npm run cluster --prefix server",
-    "deploy-cluster": "run-p client cluster-server"
+    "deploy-cluster": "run-p client cluster-server",
+    "debbug": "npm run debbug --prefix server"
   },
   "keywords": [],
   "author": "",
