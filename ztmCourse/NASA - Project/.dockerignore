@@ -1,0 +1,9 @@
+.git
+
+#this line excludes node_mudules if it exists in any of the folders at the root of the project, and will not be send to docker image
+*/node_modules
+
+
+server/public
+
+.pem
