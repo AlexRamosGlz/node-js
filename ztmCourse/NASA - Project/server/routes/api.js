@@ -8,8 +8,5 @@ const api = express.Router();
 
 api.use(routesConstants.PLANETS, planetsRouter);
 api.use(routesConstants.LAUNCHES, launchesRouter);
-api.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "public", "index.html"));
-});
 
 module.exports = api;
