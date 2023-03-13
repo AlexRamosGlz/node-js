@@ -1,7 +1,11 @@
-const httpServer = require("http").createServer();
+const http = require("http");
 const { Server } = require("socket.io");
 
+const api = require("./api");
+const sockets = require("./sockets");
 const PORT = 3000;
+
+const httpServer = http.createServer(api);
 
 const io = new Server(httpServer, {
   cors: {
@@ -9,18 +13,6 @@ const io = new Server(httpServer, {
   },
 });
 
-io.on("connection", (socket) => {
-  console.log("socket served", socket.id);
-
-  let playersCounter = 0;
-
-  io.on("ready", (socket) => {
-    playersCounter++;
-
-    if (playersCounter === 2) {
-      io.emit("startGame", socket.id);
-    }
-  });
-});
+sockets.listen(io);
 
 httpServer.listen(PORT);

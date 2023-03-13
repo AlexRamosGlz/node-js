@@ -3,6 +3,7 @@
     "@graphql-tools/load-files": "^6.6.1",
     "@graphql-tools/schema": "^9.0.17",
     "jsonwebtoken": "^8.5.1",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "socket.io-client": "^4.6.0"
   }
 }
